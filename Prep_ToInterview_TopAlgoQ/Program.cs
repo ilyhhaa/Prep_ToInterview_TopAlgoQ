@@ -86,7 +86,38 @@ public class SolutionRotate
             {
                 nums[i] = copy[i];
             }
-
+           
     }
 }
 //0-1-2    10-11-12
+
+
+/*
+ Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+
+ 
+
+Example 1:
+
+Input: nums = [1,2,3,1]
+Output: true
+Example 2:
+
+Input: nums = [1,2,3,4]
+Output: false
+Example 3:
+
+Input: nums = [1,1,1,3,3,4,3,2,4,2]
+Output: true*/
+
+public class SolutionDuplicate
+{
+    public bool ContainsDuplicate(int[] nums)
+    {
+
+        return nums.GroupBy(n => n).Any(g => g.Count() > 1);
+
+        //Можно через HashSet и потом сравнить HashSet.Count с nums.Count
+    }
+
+}
