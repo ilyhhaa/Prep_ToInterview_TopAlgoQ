@@ -172,4 +172,16 @@ Output: [4,9]
 Explanation: [9,4] is also accepted.
 */
 
+public class SolutionFindIntersect
+{
+    public int[] Intersect(int[] nums1, int[] nums2)
+    {
 
+        var intersection = nums1.GroupBy(x => x)
+                        .SelectMany(group => Enumerable.Repeat(group.Key, Math.Min(group.Count(), nums2.Count(y => y == group.Key))))
+                        .ToArray();
+
+        return intersection;
+
+    }
+}
